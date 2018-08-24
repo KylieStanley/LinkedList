@@ -1,0 +1,29 @@
+body {
+
+font-family: 'Open Sans', sans-serif;
+font-weight: 400;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+    "input results";
+}
+
+.input {
+  grid-area: input;
+  background-color: #455A64;
+  color: white; 
+}
+
+.results {
+  grid-area: results;
+  background-color: #CFD8DC;
+}
+
