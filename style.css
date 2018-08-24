@@ -5,8 +5,9 @@ font-weight: 400;
 }
 
 img {
-  height: 100px;
-  width: 100px;
+  width: 62px;
+  position: relative;
+  bottom: 13px;
 }
 
 .container {
@@ -16,10 +17,10 @@ img {
     "input results";
 }
 
-.input {
+.header {
   grid-area: input;
   background-color: #455A64;
-  color: white; 
+  color: white;
 }
 
 .results {
@@ -27,3 +28,33 @@ img {
   background-color: #CFD8DC;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 300px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+input {
+  font-size: 20px;
+  padding: 3px 7px;
+  border: 2px solid lightgray;
+}
+
+::placeholder {
+  color: rgb(187, 189, 191);
+}
+
+ .input-field {
+   display: block;
+   margin: 30px auto;
+   width: 300px;
+ }
+
+ .inner-container {
+  margin: 0 auto;
+ }
