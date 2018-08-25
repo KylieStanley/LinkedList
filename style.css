@@ -13,14 +13,18 @@ img {
   grid-template-columns: 1fr 1fr;
   grid-template-areas: 
     "input results";
-  height: 100%;
+  height: 900px;
 }
 
 .header {
   grid-area: input;
   background-color: #455A64;
   color: white;
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+ }
 
 .results {
   grid-area: results;
@@ -52,7 +56,7 @@ input {
 
  .input-field {
    display: block;
-   margin: 40px auto;
+   margin: 20px auto;
    width: 300px;
  }
 
