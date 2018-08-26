@@ -91,6 +91,7 @@ input {
  }
 
  a {
+  border-bottom: 10px;
   color: #607D8B; 
   text-decoration: underline;
   text-decoration-color: #CFD8DC;
@@ -103,8 +104,9 @@ input {
 
  a:hover {
   color: #455A64;
-  text-decoration-color: #FFC107; 
+  cursor: pointer;
   font-weight: 800;
+  text-decoration-color: #FFC107; 
  }
 
  .enter-button:hover {
@@ -116,14 +118,14 @@ input {
    text-decoration-color: #CFD8DC;
  }
 
- .red-read {
+ .read .read-button {
    color: #F05A28;
    font-weight: 800;
    text-decoration: none;
  }
 
  hr {
-   color: #CFD8DC;
+   border-color: #CFD8DC;
  }
 
  

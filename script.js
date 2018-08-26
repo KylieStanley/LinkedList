@@ -1,10 +1,16 @@
 /////GLOBAL VARS
 
+//Button variables
 var enterButton = document.querySelector(".enter-button");
+var readButton = document.querySelectorAll(".read-button");
+var deleteButton = document.querySelectorAll(".delete-button");
+
+//Input variables
 var websiteTitle = document.querySelector(".website-title");
 var websiteURL = document.querySelector(".website-url");
+
+//Bookmark variables
 var results = document.querySelector(".results");
-var deleteButton = document.querySelectorAll(".delete-button");
 var bookmarks = document.querySelectorAll('.bookmark');
 
 
@@ -17,9 +23,12 @@ var unreadLinks = 0;
 enterButton.addEventListener("click", function() {
   bookmarkCount++;
   createHTML();
+
 });
 
-//////CONTRUCTOR FUNCTION
+
+
+
 
 /////CREATEHTMLFUNCTION
 
@@ -35,15 +44,25 @@ function createHTML(){
   <a class="read-button">Read</a>
   <a class="delete-button deleteButton${bookmarkCount}">Delete</a>
  </article>`)
-  deleteButton = document.querySelectorAll(".delete-button");
   bookmarks = document.querySelectorAll('.bookmark');
+  updateDeleteAndReadButtons();  
+}
+
+
+function updateDeleteAndReadButtons() {
+  deleteButton = document.querySelectorAll(".delete-button");
   deleteButton[bookmarkCount].addEventListener('click', function() {
-    console.log(event);
-    console.log(event.target);
-    console.log(event.target.parentElement);
     results.removeChild(event.target.parentElement);
     bookmarkCount--;
   })
+  
+  readButton = document.querySelectorAll(".read-button");
+  readButton[bookmarkCount].addEventListener('click', function() {
+    bookmarks[bookmarkCount].classList.toggle('read');
+    console.log(bookmarks[bookmarkCount]);
+
+});
+  
 }
 
 /////HELPER FUNCTIONS
