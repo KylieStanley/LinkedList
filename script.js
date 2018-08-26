@@ -32,12 +32,15 @@ function createHTML(){
   <hr>
   <a class="website-link" href="${displayWebAddress}">${displayWebAddress}</a>
   <hr>
-  <button class="read-button">Read</button>
-  <button class="delete-button deleteButton${bookmarkCount}">Delete</button>
+  <a class="read-button">Read</a>
+  <a class="delete-button deleteButton${bookmarkCount}">Delete</a>
  </article>`)
   deleteButton = document.querySelectorAll(".delete-button");
   bookmarks = document.querySelectorAll('.bookmark');
   deleteButton[bookmarkCount].addEventListener('click', function() {
+    console.log(event);
+    console.log(event.target);
+    console.log(event.target.parentElement);
     results.removeChild(event.target.parentElement);
     bookmarkCount--;
   })
