@@ -142,13 +142,14 @@ input {
  /*STATS HEADER STYLING*/
 .stats {
   width: 100%;
+  display: flex;
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   z-index: 1;
+  background-color: #F2F4F4;
 }
 
  ul {
-   width: 100%;
    display: flex;
    list-style: none;
  }
