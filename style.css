@@ -13,7 +13,6 @@ img {
   grid-template-columns: 1fr 1fr;
   grid-template-areas: 
     "input results";
-  height: 900px;
 }
 
 .header {
@@ -29,6 +28,8 @@ img {
 .results {
   grid-area: results;
   background-color: #CFD8DC;
+  height: 100vh;
+  overflow: scroll;
 }
 
 header {
@@ -138,4 +139,29 @@ input {
    border-color: #CFD8DC;
  }
 
+ /*STATS HEADER STYLING*/
+.stats {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  z-index: 1;
+}
+
+ ul {
+   width: 100%;
+   display: flex;
+   list-style: none;
+ }
+
+
+ @media screen and (max-width: 680px){
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+      "input"
+      "results";
+    height: 400px;
+  }
+ }
  
