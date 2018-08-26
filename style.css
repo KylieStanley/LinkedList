@@ -70,6 +70,20 @@ input {
     width: 318px;
  }
 
+ .enter-button:hover {
+   background-color: #FFD773
+ }
+
+ .enter-button:disabled {
+  opacity: .6;
+ }
+
+ .enter-button:disabled:hover {
+  opacity: .6;
+  background-color: #FFC107;
+
+ }
+
  .inner-container {
     margin: 0 auto;
  }
@@ -107,10 +121,6 @@ input {
   cursor: pointer;
   font-weight: 800;
   text-decoration-color: #FFC107; 
- }
-
- .enter-button:hover {
-   background-color: #FFD773
  }
 
  .read {

@@ -13,22 +13,33 @@ var websiteURL = document.querySelector(".website-url");
 var results = document.querySelector(".results");
 var bookmarks = document.querySelectorAll('.bookmark');
 
-
 var bookmarkCount = 0;
 
 var linkCount = 0;
 var readLinks = 0;
 var unreadLinks = 0;
 
+
+websiteTitle.addEventListener('keyup', function() {
+  if (websiteTitle.value.length === 0 || websiteURL.value.length === 0) {
+    enterButton.disabled = true;
+  } else {
+    enterButton.disabled = false;
+  }
+})
+
+websiteURL.addEventListener('keyup', function() {
+  if (websiteTitle.value.length === 0 || websiteURL.value.length === 0) {
+    enterButton.disabled = true;
+  } else {
+    enterButton.disabled = false;
+  }
+})
+
 enterButton.addEventListener("click", function() {
   bookmarkCount++;
   createHTML();
-
 });
-
-
-
-
 
 /////CREATEHTMLFUNCTION
 
