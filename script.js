@@ -10,8 +10,8 @@ var results = document.querySelector(".results");
 
 //COUNT VARS
 var bookmarkCount = 1;
-var readLinks = 0;
-var unreadLinks = 1;
+var readLinks = document.querySelectorAll(".read").length;
+var unreadLinks = bookmarkCount - readLinks;
 
 ///EVENT LISTENERS
 
@@ -24,7 +24,6 @@ websiteURL.addEventListener('keyup',  function() {
 })
 
 enterButton.addEventListener("click", function() {
-  bookmarkCount++;
   createHTML();
 });
 
@@ -32,9 +31,11 @@ results.addEventListener('click', function(e) {
   if(e.target.classList.contains("delete-button")){
     results.removeChild(e.target.parentElement);
     bookmarkCount--;
+    updateStats();
   };
   if(e.target.classList.contains("read-button")){
     e.target.parentElement.classList.toggle("read");
+    updateStats();
   }
 });
 
@@ -53,9 +54,10 @@ function createHTML(){
   <a class="delete-button deleteButton${bookmarkCount}">Delete</a>
  </article>`)
   bookmarkCount++;
+  updateStats();
 }
 
-/////HELPER FUNCTIONS
+/////OTHER FUNCTIONS
 
 function clearReadBookmarks(){};
 
@@ -65,4 +67,12 @@ function disableEnterButtonCheck(){
   } else {
     enterButton.disabled = false;
   }
+}
+
+function updateStats(){
+  readLinks = document.querySelectorAll(".read").length;
+  unreadLinks = bookmarkCount - readLinks;
+  document.getElementById("bookmarks").innerHTML = `Bookmarks: ${bookmarkCount}`;
+  document.getElementById("read").innerHTML = `Read: ${readLinks}`;
+  document.getElementById("unread").innerHTML = `Unread: ${unreadLinks}`;
 }
