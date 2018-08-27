@@ -157,6 +157,7 @@ ul {
   text-align: center;
   font-style: italic;
   padding: 0;
+  opacity: .8;
 }
 
 .inner-container {
@@ -171,6 +172,11 @@ ul {
      "input"
      "results";
     height: 400px;
+  }
+
+  .results,
+  .header {
+    height: 50vh;
   }
 }
 
