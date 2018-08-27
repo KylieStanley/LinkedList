@@ -84,6 +84,15 @@ input {
   overflow: scroll;
 }
 
+.clear-button {
+  background-color: #CFD8DC;
+  border: none;
+  color: #607D8B;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
 .bookmark {
   background-color: white;
   border: 2px solid #607D8B;
@@ -98,7 +107,8 @@ h2 {
 }
 
 hr {
-  border-color: #CFD8DC;
+  border: .5px solid;
+  color: #cfd8dc;
 }
 
 a {
