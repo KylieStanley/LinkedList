@@ -4,6 +4,7 @@
   <title>Linked List</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <div class="container">
@@ -18,6 +19,13 @@
         <input type="url" name="" placeholder="Website URL" class="input-field website-url" required pattern=".*\.*\..*">
         <button class="input-field enter-button" disabled>Enter</button>
       </form>
+      <footer class="stats">
+        <ul>
+          <li id="bookmarks">Bookmarks: 1</li>
+          <li id="read">Read: 0</li>
+          <li id="unread">Unread: 1</li>
+        </ul>
+      </footer>
     </section>
     <section class="results">
       <button class="clear-button">Clear All Read</button>
@@ -29,13 +37,6 @@
         <a class="read-button">Read</a>
         <a class="delete-button">Delete</a>
       </article>
-      <footer class="stats">
-        <ul>
-          <li id="bookmarks">Bookmarks: 1</li>
-          <li id="read">Read: 0</li>
-          <li id="unread">Unread: 1</li>
-        </ul>
-      </footer>
     </section>
   <div>
   <script type="text/javascript" src="script.js"></script>
