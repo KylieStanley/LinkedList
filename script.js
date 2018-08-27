@@ -1,24 +1,21 @@
-/////GLOBAL VARS
-
-//Button variables
+//BUTTON VARS
 var enterButton = document.querySelector(".enter-button");
-var readButton = document.querySelectorAll(".read-button");
-var deleteButton = document.querySelectorAll(".delete-button");
 
-//Input variables
+//USER INPUT VARS
 var websiteTitle = document.querySelector(".website-title");
 var websiteURL = document.querySelector(".website-url");
 
-//Bookmark variables
+//BOOKMARK VARS
 var results = document.querySelector(".results");
 var bookmarks = document.querySelectorAll('.bookmark');
 
+//COUNT VARS
 var bookmarkCount = 0;
-
-var linkCount = 0;
 var readLinks = 0;
 var unreadLinks = 0;
 
+
+///EVENT LISTENERS
 
 websiteTitle.addEventListener('keyup', function() {
   if (websiteTitle.value.length === 0 || websiteURL.value.length === 0) {
@@ -41,7 +38,20 @@ enterButton.addEventListener("click", function() {
   createHTML();
 });
 
-/////CREATEHTMLFUNCTION
+
+document.querySelector('.results').addEventListener('click', function(e) {
+  console.log(e.target);
+  
+  if(e.target.classList.contains("delete-button")){
+    results.removeChild(event.target.parentElement);
+    bookmarkCount--;
+  };
+  if(e.target.classList.contains("read-button")){
+    e.target.parentElement.classList.add("read");
+  }
+});
+
+/////CREATE HTML FUNCTION
 
 function createHTML(){
   var displayTitle = websiteTitle.value;
@@ -55,29 +65,9 @@ function createHTML(){
   <a class="read-button">Read</a>
   <a class="delete-button deleteButton${bookmarkCount}">Delete</a>
  </article>`)
-  bookmarks = document.querySelectorAll('.bookmark');
-  updateDeleteAndReadButtons();  
-}
-
-
-function updateDeleteAndReadButtons() {
-  deleteButton = document.querySelectorAll(".delete-button");
-  deleteButton[bookmarkCount].addEventListener('click', function() {
-    results.removeChild(event.target.parentElement);
-    bookmarkCount--;
-  })
-  
-  readButton = document.querySelectorAll(".read-button");
-  readButton[bookmarkCount].addEventListener('click', function() {
-    bookmarks[bookmarkCount].classList.toggle('read');
-    console.log(bookmarks[bookmarkCount]);
-
-});
-  
+  bookmarkCount++;
 }
 
 /////HELPER FUNCTIONS
-
-function validateInput(){};
 
 function clearReadBookmarks(){};
