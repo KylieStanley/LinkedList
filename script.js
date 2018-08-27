@@ -10,27 +10,18 @@ var results = document.querySelector(".results");
 var bookmarks = document.querySelectorAll('.bookmark');
 
 //COUNT VARS
-var bookmarkCount = 0;
+var bookmarkCount = 1;
 var readLinks = 0;
-var unreadLinks = 0;
-
+var unreadLinks = 1;
 
 ///EVENT LISTENERS
 
 websiteTitle.addEventListener('keyup', function() {
-  if (websiteTitle.value.length === 0 || websiteURL.value.length === 0) {
-    enterButton.disabled = true;
-  } else {
-    enterButton.disabled = false;
-  }
+  disableEnterButtonCheck()
 })
 
-websiteURL.addEventListener('keyup', function() {
-  if (websiteTitle.value.length === 0 || websiteURL.value.length === 0) {
-    enterButton.disabled = true;
-  } else {
-    enterButton.disabled = false;
-  }
+websiteURL.addEventListener('keyup',  function() {
+  disableEnterButtonCheck()
 })
 
 enterButton.addEventListener("click", function() {
@@ -38,16 +29,13 @@ enterButton.addEventListener("click", function() {
   createHTML();
 });
 
-
-document.querySelector('.results').addEventListener('click', function(e) {
-  console.log(e.target);
-  
+results.addEventListener('click', function(e) {
   if(e.target.classList.contains("delete-button")){
-    results.removeChild(event.target.parentElement);
+    results.removeChild(e.target.parentElement);
     bookmarkCount--;
   };
   if(e.target.classList.contains("read-button")){
-    e.target.parentElement.classList.add("read");
+    e.target.parentElement.classList.toggle("read");
   }
 });
 
@@ -71,3 +59,11 @@ function createHTML(){
 /////HELPER FUNCTIONS
 
 function clearReadBookmarks(){};
+
+function disableEnterButtonCheck(){
+  if (websiteTitle.value.length === 0 || websiteURL.value.length === 0) {
+    enterButton.disabled = true;
+  } else {
+    enterButton.disabled = false;
+  }
+}
