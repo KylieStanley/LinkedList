@@ -19,7 +19,10 @@ var unreadLinks = bookmarkCount - readLinks;
 websiteTitle.addEventListener("keyup", disableEnterButtonCheck);
 websiteURL.addEventListener("keyup", disableEnterButtonCheck);
 enterButton.addEventListener("click", createHTML);
-clearButton.addEventListener("click", clearReadBookmarks);
+clearButton.addEventListener("click", function(){
+  clearReadBookmarks();
+  updateStats();
+});
 
 results.addEventListener("click", function(e) {
   if(e.target.classList.contains("delete-button")) {
@@ -57,7 +60,8 @@ function createHTML(){
 function clearReadBookmarks(){
   var readBookmarks = document.getElementsByClassName("read");
     while(readBookmarks.length > 0){
-      readBookmarks[0].parentNode.removeChild(readBookmarks[0]);
+      readBookmarks[0].parentNode.removeChild(readBookmarks[0])
+      bookmarkCount--;
     }
 };
 

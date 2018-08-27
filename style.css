@@ -45,7 +45,7 @@ input {
 
 .input-field {
   display: block;
-  margin: 20px auto;
+  margin: 30px auto;
   width: 300px;
 }
 
@@ -98,6 +98,7 @@ input {
   border: 2px solid #607D8B;
   margin: 15px;
   padding: 10px 15px;
+  overflow-x: scroll;
 }
 
 h2 {
@@ -140,19 +141,22 @@ a:hover {
   float: right;
 }
 
+.clear-button:hover {
+  text-decoration: underline;
+}
+
 /*STATS HEADER STYLING*/
 .stats {
-  background-color: #F2F4F4;
-  bottom: 0px;
-  display: flex;
-  position: absolute;
   width: 100%;
-  z-index: 1;
+  margin-top: 0;
 }
 
 ul {
-  display: flex;
+  margin-top: 0;
   list-style: none;
+  text-align: center;
+  font-style: italic;
+  padding: 0;
 }
 
 .inner-container {
