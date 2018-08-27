@@ -6,7 +6,7 @@ var clearButton = document.querySelector(".clear-button");
 var websiteTitle = document.querySelector(".website-title");
 var websiteURL = document.querySelector(".website-url");
 
-//BOOKMARK VARS
+//BOOKMARK VAR
 var results = document.querySelector(".results");
 
 //COUNT VARS
@@ -18,17 +18,16 @@ var unreadLinks = bookmarkCount - readLinks;
 
 websiteTitle.addEventListener("keyup", disableEnterButtonCheck);
 websiteURL.addEventListener("keyup", disableEnterButtonCheck);
-
 enterButton.addEventListener("click", createHTML);
 clearButton.addEventListener("click", clearReadBookmarks);
 
 results.addEventListener("click", function(e) {
-  if(e.target.classList.contains("delete-button")){
+  if(e.target.classList.contains("delete-button")) {
     results.removeChild(e.target.parentElement);
     bookmarkCount--;
     updateStats();
   };
-  if(e.target.classList.contains("read-button")){
+  if(e.target.classList.contains("read-button")) {
     e.target.parentElement.classList.toggle("read");
     updateStats();
   }
@@ -63,11 +62,7 @@ function clearReadBookmarks(){
 };
 
 function disableEnterButtonCheck(){
-  if (websiteTitle.value.length === 0 || websiteURL.value.length === 0) {
-    enterButton.disabled = true;
-  } else {
-    enterButton.disabled = false;
-  }
+    enterButton.disabled = websiteTitle.value.length === 0 || websiteURL.value.length === 0;
 }
 
 function updateStats(){
