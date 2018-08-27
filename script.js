@@ -7,7 +7,6 @@ var websiteURL = document.querySelector(".website-url");
 
 //BOOKMARK VARS
 var results = document.querySelector(".results");
-var bookmarks = document.querySelectorAll('.bookmark');
 
 //COUNT VARS
 var bookmarkCount = 1;
