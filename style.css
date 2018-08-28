@@ -1,4 +1,5 @@
 body {
+  background-color: #f3f3f3;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   margin: 0;
@@ -9,6 +10,8 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-template-areas: 
     "input results";
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .header {
@@ -23,18 +26,20 @@ body {
 header {
   display: flex;
   height: 55px;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 auto;
-  width: 300px;
+  width: 100%
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 3.9em;
   margin: 0;
+  margin-top: -15px;
 }
 
 img {
-  width: 62px;
+  font-size: 1em;
+  width: 90px;
 }
 
 input {
@@ -45,8 +50,8 @@ input {
 
 .input-field {
   display: block;
-  margin: 30px auto;
-  width: 300px;
+  margin: 40px auto;
+  width: 86%;
 }
 
 ::placeholder {
@@ -60,7 +65,7 @@ input {
   font-size: 14px;
   font-weight: 800;
   padding: 7px;
-  width: 318px;
+  width: 89%;
 }
 
 .enter-button:hover {
@@ -84,6 +89,12 @@ input {
   overflow: scroll;
 }
 
+.results::-webkit-scrollbar,
+.results::-webkit-scrollbar-corner
+ {
+  background-color: #CFD8DC;
+}
+
 .clear-button {
   background-color: #CFD8DC;
   border: none;
@@ -91,12 +102,18 @@ input {
   font-size: 14px;
   margin-top: 10px;
   margin-left: 10px;
+  text-decoration: underline;
+}
+
+.clear-button:hover {
+  text-decoration: none;
 }
 
 .bookmark {
   background-color: white;
   border: 2px solid #607D8B;
   margin: 15px;
+  margin-right: 5px;
   padding: 10px 15px;
   overflow-x: scroll;
 }
@@ -141,14 +158,11 @@ a:hover {
   float: right;
 }
 
-.clear-button:hover {
-  text-decoration: underline;
-}
 
 /*STATS STYLING*/
 .stats {
-  width: 100%;
-  margin-top: 0;
+  width: 300px;
+  margin: 0 auto;
 }
 
 ul {
@@ -157,6 +171,12 @@ ul {
   text-align: center;
   font-style: italic;
   padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  flex-grow: 1;
 }
 
 .inner-container {
@@ -175,6 +195,7 @@ span {
      "input"
      "results";
     height: 400px;
+    width: 100%;
   }
 
   .results,
