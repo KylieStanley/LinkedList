@@ -83,9 +83,9 @@ function disableEnterButtonCheck(){
 function updateStats(){
   readLinks = document.querySelectorAll(".read").length;
   unreadLinks = bookmarkCount - readLinks;
-  document.getElementById("bookmarks").innerHTML = `Bookmarks: ${bookmarkCount}`;
-  document.getElementById("read").innerHTML = `Read: ${readLinks}`;
-  document.getElementById("unread").innerHTML = `Unread: ${unreadLinks}`;
+  document.getElementById("bookmark-count").innerHTML = ` ${bookmarkCount}`;
+  document.getElementById("read-count").innerHTML = ` ${readLinks}`;
+  document.getElementById("unread-count").innerHTML = ` ${unreadLinks}`;
 }
 
 function validateURL(thisUrl) {

@@ -145,7 +145,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/*STATS HEADER STYLING*/
+/*STATS STYLING*/
 .stats {
   width: 100%;
   margin-top: 0;
@@ -157,11 +157,14 @@ ul {
   text-align: center;
   font-style: italic;
   padding: 0;
-  opacity: .8;
 }
 
 .inner-container {
     margin: 0 auto;
+}
+
+span {
+  color: #FFC107;
 }
 
 @media screen and (max-width: 680px){
