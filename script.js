@@ -18,7 +18,18 @@ var unreadLinks = bookmarkCount - readLinks;
 
 websiteTitle.addEventListener("keyup", disableEnterButtonCheck);
 websiteURL.addEventListener("keyup", disableEnterButtonCheck);
-enterButton.addEventListener("click", createHTML);
+enterButton.addEventListener("click", function(){
+  event.preventDefault();
+  console.log(validateURL(websiteURL.value));
+  if (validateURL(websiteURL.value)) {
+      createHTML()
+  } else {
+    alert("Please Enter Valid URL")
+  }
+
+});
+
+
 clearButton.addEventListener("click", function(){
   clearReadBookmarks();
   updateStats();
@@ -75,4 +86,9 @@ function updateStats(){
   document.getElementById("bookmarks").innerHTML = `Bookmarks: ${bookmarkCount}`;
   document.getElementById("read").innerHTML = `Read: ${readLinks}`;
   document.getElementById("unread").innerHTML = `Unread: ${unreadLinks}`;
+}
+
+function validateURL(thisUrl) {
+  var check = new RegExp("^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})")
+  return check.test(thisUrl);
 }
