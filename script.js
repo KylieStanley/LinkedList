@@ -18,13 +18,14 @@ var unreadLinks = bookmarkCount - readLinks;
 
 websiteTitle.addEventListener("keyup", disableEnterButtonCheck);
 websiteURL.addEventListener("keyup", disableEnterButtonCheck);
+
 enterButton.addEventListener("click", function(){
   event.preventDefault();
   console.log(validateURL(websiteURL.value));
   if (validateURL(websiteURL.value)) {
       createHTML()
   } else {
-    alert("Please Enter Valid URL")
+    alert("Please Enter a URL that begins with https:\\www. or http:\\www.")
   }
 
 });
@@ -89,6 +90,6 @@ function updateStats(){
 }
 
 function validateURL(thisUrl) {
-  var check = new RegExp("^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})")
+  var check = new RegExp("http.?:\/\/www\.")
   return check.test(thisUrl);
 }
