@@ -38,7 +38,6 @@ results.addEventListener("click", function(e) {
   }
 });
 
-
 /////CREATE HTML FUNCTION
 
 function createHTML(){
@@ -58,6 +57,7 @@ function createHTML(){
   updateStats();
   websiteUrlInput.value = "";
   websiteTitleInput.value = "";
+  disableEnterButtonCheck()
 }
 
 /////OTHER FUNCTIONS
