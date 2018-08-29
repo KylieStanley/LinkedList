@@ -199,9 +199,12 @@ span {
     width: 100%;
   }
 
-  .header,
+  .header {
+    height: 45vh;
+    
+  }
   .results {
-    height: 50vh;
+    height: 55vh;
   }
 
   h1 {
