@@ -38,7 +38,6 @@ h1 {
 }
 
 img {
-  font-size: 1em;
   width: 7vw;
 }
 
@@ -187,13 +186,14 @@ span {
   color: #FFC107;
 }
 
-@media screen and (max-width: 680px){
+@media screen and (max-width: 770px){
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 
      "input"
      "results";
+    max-width: 600px;
     height: 400px;
     width: 100%;
   }
