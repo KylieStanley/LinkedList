@@ -26,9 +26,7 @@ enterButton.addEventListener("click", function(){
   } else {
     alert("Please Enter Valid URL")
   }
-
 });
-
 
 clearButton.addEventListener("click", function(){
   clearReadBookmarks();
@@ -77,7 +75,7 @@ function clearReadBookmarks(){
 };
 
 function disableEnterButtonCheck(){
-    enterButton.disabled = websiteTitle.value.length === 0 || websiteURL.value.length === 0;
+  enterButton.disabled = websiteTitle.value.length === 0 || websiteURL.value.length === 0;
 }
 
 function updateStats(){
