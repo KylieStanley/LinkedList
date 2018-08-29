@@ -4,8 +4,8 @@ var clearButton = document.querySelector(".clear-button");
 var errorMessage = document.querySelector(".wrong-password-notification");
 
 //USER INPUT VARS
-var websiteTitle = document.querySelector(".website-title");
-var websiteURL = document.querySelector(".website-url");
+var websiteTitleInput = document.querySelector(".website-title");
+var websiteUrlInput = document.querySelector(".website-url");
 
 //BOOKMARK VAR
 var results = document.querySelector(".results");
@@ -17,21 +17,14 @@ var unreadLinks = bookmarkCount - readLinks;
 
 ///EVENT LISTENERS
 
-websiteTitle.addEventListener("keyup", disableEnterButtonCheck);
-websiteURL.addEventListener("keyup", function() {
+websiteTitleInput.addEventListener("keyup", disableEnterButtonCheck);
+websiteUrlInput.addEventListener("keyup", function() {
   disableEnterButtonCheck();
-  validateURL(websiteURL.value) ? errorMessage.classList.remove("display-error") : errorMessage.classList.add("display-error");
+  validateURL(websiteUrlInput.value) ? errorMessage.classList.remove("display-error") : errorMessage.classList.add("display-error");
   });
 
-enterButton.addEventListener("click", function(){
-  event.preventDefault();
-  createHTML()
-});
-
-clearButton.addEventListener("click", function(){
-  clearReadBookmarks();
-  updateStats();
-});
+enterButton.addEventListener("click", createHTML);
+clearButton.addEventListener("click", clearReadBookmarks);
 
 results.addEventListener("click", function(e) {
   if(e.target.classList.contains("delete-button")) {
@@ -49,8 +42,9 @@ results.addEventListener("click", function(e) {
 /////CREATE HTML FUNCTION
 
 function createHTML(){
-  var displayTitle = websiteTitle.value;
-  var displayWebAddress = websiteURL.value;
+  event.preventDefault();
+  var displayTitle = websiteTitleInput.value;
+  var displayWebAddress = websiteUrlInput.value;
   results.insertAdjacentHTML("beforeend", 
   `<article class ="bookmark bookmark${bookmarkCount}">
   <h2>${displayTitle}</h2>
@@ -62,6 +56,8 @@ function createHTML(){
  </article>`)
   bookmarkCount++;
   updateStats();
+  websiteUrlInput.value = "";
+  websiteTitleInput.value = "";
 }
 
 /////OTHER FUNCTIONS
@@ -72,10 +68,11 @@ function clearReadBookmarks(){
       readBookmarks[0].parentNode.removeChild(readBookmarks[0])
       bookmarkCount--;
     }
+    updateStats();
 };
 
 function disableEnterButtonCheck(){
-    enterButton.disabled = websiteTitle.value.length === 0 || !validateURL(websiteURL.value);
+    enterButton.disabled = websiteTitleInput.value.length === 0 || !validateURL(websiteUrlInput.value);
 }
 
 function updateStats(){
