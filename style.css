@@ -1,3 +1,5 @@
+/*GENERAL STYLING*/
+
 body {
   background-color: #f3f3f3;
   font-family: 'Open Sans', sans-serif;
@@ -23,23 +25,32 @@ body {
   justify-content: center;
 }
 
+.results {
+  background-color: #CFD8DC;
+  grid-area: results;
+  height: 100vh;
+  overflow: scroll;
+}
+
+h1 {
+  align-self: center;
+  font-size: 50px;
+  margin: 0;
+}
+
+img {
+  width: 75px;
+}
+
+
+/*INPUT AREA STYLING*/
+
 header {
   display: flex;
   height: 55px;
   justify-content: center;
   margin: 0 auto;
   width: 100%
-}
-
-h1 {
-  align-self: center;
-  /*font-size: 5vw;*/
-  font-size: 4em;
-  margin: 0;
-}
-
-img {
-  width: 7vw;
 }
 
 input {
@@ -50,9 +61,9 @@ input {
 
 .input-field {
   display: block;
-  margin: 40px auto;
+  margin: 35px auto;
   margin-bottom: 25px;
-  width: 84%;
+  width: 330px;
 }
 
 ::placeholder {
@@ -66,7 +77,7 @@ input {
   font-size: 14px;
   font-weight: 800;
   padding: 7px;
-  width: 87%;
+  width: 350px;
   margin-top: 0;
 }
 
@@ -83,86 +94,6 @@ input {
   opacity: .6;
 }
 
- /*BOOKMARK STYLING*/
-.results {
-  background-color: #CFD8DC;
-  grid-area: results;
-  height: 100vh;
-  overflow: scroll;
-}
-
-.results::-webkit-scrollbar,
-.results::-webkit-scrollbar-corner
- {
-  background-color: #CFD8DC;
-}
-
-.clear-button {
-  background-color: #CFD8DC;
-  border: none;
-  color: #607D8B;
-  font-size: 14px;
-  margin-top: 10px;
-  margin-left: 10px;
-  text-decoration: underline;
-}
-
-.clear-button:hover {
-  text-decoration: none;
-}
-
-.bookmark {
-  animation: slideIn .5s ease 0s 1;
-  background-color: white;
-  border: 2px solid #607D8B;
-  margin: 15px;
-  margin-right: 5px;
-  overflow-x: scroll;
-  padding: 10px 15px;
-}
-
-h2 {
-  color: #455A64;
-  font-weight: 800;
-  margin: 0;
-}
-
-hr {
-  border: .5px solid;
-  color: #cfd8dc;
-}
-
-a {
-  border-bottom: 10px;
-  color: #607D8B; 
-  text-decoration: underline;
-  text-decoration-color: #CFD8DC;
-}
-
-a:hover {
-  color: #455A64;
-  cursor: pointer;
-  font-weight: 800;
-  text-decoration-color: #FFC107; 
-}
-
-.read {
-  background-color: #F2F4F4;
-  text-decoration-color: #CFD8DC;
-}
-
-.read .read-button {
-  color: #F05A28;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.delete-button {
-  float: right;
-}
-
-
-/*STATS STYLING*/
 .error-container {
   height: 20px;
   display: block;
@@ -212,7 +143,82 @@ span {
   color: #FFC107;
 }
 
-@media screen and (max-width: 850px){
+
+ /*BOOKMARK AREA STYLING*/
+
+.bookmark {
+  animation: slideIn .5s ease 0s 1;
+  background-color: white;
+  border: 2px solid #607D8B;
+  margin: 15px;
+  margin-right: 15px;
+  overflow-x: scroll;
+  padding: 10px 15px;
+}
+
+results::-webkit-scrollbar,
+.results::-webkit-scrollbar-corner
+ {
+  background-color: #CFD8DC;
+}
+
+h2 {
+  color: #455A64;
+  font-weight: 800;
+  margin: 0;
+}
+
+hr {
+  border: .5px solid;
+  color: #cfd8dc;
+}
+
+a {
+  border-bottom: 10px;
+  color: #607D8B; 
+  text-decoration: underline;
+  text-decoration-color: #CFD8DC;
+}
+
+a:hover {
+  color: #455A64;
+  cursor: pointer;
+  font-weight: 800;
+  text-decoration-color: #FFC107; 
+}
+
+.clear-button {
+  background-color: #CFD8DC;
+  border: none;
+  color: #607D8B;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 10px;
+  text-decoration: underline;
+}
+
+.clear-button:hover {
+  text-decoration: none;
+}
+
+.read {
+  background-color: #F2F4F4;
+  text-decoration-color: #CFD8DC;
+}
+
+.read .read-button {
+  color: #F05A28;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.delete-button {
+  float: right;
+}
+
+/*IPAD SIZING*/
+
+@media screen and (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
@@ -225,23 +231,47 @@ span {
   }
 
   .header {
-    height: 45vh;
-    
+    height: 45vh; 
   }
+
   .results {
     height: 55vh;
   }
 
+  .input-field {
+    margin: 20px auto 2px auto;
+  }
+
+  .wrong-password-notification {
+    top: 0px;
+  }
+}
+
+/*MOBILE SIZING*/
+
+@media screen and (max-width: 420px) {
   h1 {
-    font-size: 8vw;
+    margin: 30px 3px 20px 3px;
+    font-size: 25px
   }
 
   img {
-    width: 10vw;
+    position: relative;
+    top: 5px;
+    width: 30px;
   }
 
   .input-field {
-    margin: 15px auto;
+    margin-top: 10px;
+    width: 82%
+  }
+
+  .enter-button {
+    width: 87%;
+  }
+
+  header {
+    height: 80px;
   }
 }
 
