@@ -158,6 +158,21 @@ a:hover {
 
 
 /*STATS STYLING*/
+.wrong-password-notification {
+  background-color: red;
+  bottom: 30px;
+  color: white;
+  display: none;
+  padding: 5px;
+  width: 330px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.display-error {
+  display: block;
+}
+
 .stats {
   width: 300px;
   margin: 0 auto;

@@ -1,6 +1,7 @@
 //BUTTON VARS
 var enterButton = document.querySelector(".enter-button");
 var clearButton = document.querySelector(".clear-button");
+var errorMessage = document.querySelector(".wrong-password-notification");
 
 //USER INPUT VARS
 var websiteTitle = document.querySelector(".website-title");
@@ -17,19 +18,15 @@ var unreadLinks = bookmarkCount - readLinks;
 ///EVENT LISTENERS
 
 websiteTitle.addEventListener("keyup", disableEnterButtonCheck);
-websiteURL.addEventListener("keyup", disableEnterButtonCheck);
+websiteURL.addEventListener("keyup", function() {
+  disableEnterButtonCheck();
+  validateURL(websiteURL.value) ? errorMessage.classList.remove("display-error") : errorMessage.classList.add("display-error");
+  });
 
 enterButton.addEventListener("click", function(){
   event.preventDefault();
-  console.log(validateURL(websiteURL.value));
-  if (validateURL(websiteURL.value)) {
-      createHTML()
-  } else {
-    alert("Please Enter a URL that begins with https:\\www. or http:\\www.")
-  }
-
+  createHTML()
 });
-
 
 clearButton.addEventListener("click", function(){
   clearReadBookmarks();
@@ -78,7 +75,7 @@ function clearReadBookmarks(){
 };
 
 function disableEnterButtonCheck(){
-    enterButton.disabled = websiteTitle.value.length === 0 || websiteURL.value.length === 0;
+    enterButton.disabled = websiteTitle.value.length === 0 || !validateURL(websiteURL.value);
 }
 
 function updateStats(){
@@ -90,6 +87,6 @@ function updateStats(){
 }
 
 function validateURL(thisUrl) {
-  var check = new RegExp("http.?:\/\/www\.")
+  var check = new RegExp("https?:\/\/www\.")
   return check.test(thisUrl);
 }
