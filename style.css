@@ -262,16 +262,28 @@ a:hover {
   }
 
   .input-field {
-    margin-top: 10px;
-    width: 82%
+    margin-bottom: 15px;
+    width: 82%;
+    font-size: 14px;
+  }
+
+  .website-url {
+    margin-bottom: 0px;
   }
 
   .enter-button {
     width: 87%;
+    font-size: 12px;
+    margin: 10px auto;
+    margin-top: 5px;
   }
 
   header {
     height: 80px;
+  }
+
+  .wrong-password-notification {
+    font-size: 12px;
   }
 }
 
